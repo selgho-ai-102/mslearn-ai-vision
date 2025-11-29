@@ -36,29 +36,29 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /u
 #################################################
 RUN apt-get update -y && apt-get upgrade -y && \
 DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y --no-install-recommends \
-  apache2-utils \
-  apt-transport-https \
-  ca-certificates \
-  curl \
-  dnsmasq \
-  dnsutils \
-  dos2unix \
-  git \
-  gnupg \
-  gzip \
-  hostname \
-  jq \
-  libatomic1 \
-  libcurl4-openssl-dev \
-  openssl \
-  shellcheck \
-  tar \
-  tree \
-  unzip \
-  uuid-runtime \
-  vim \
-  wget \
-  zip
+    apache2-utils \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    dnsmasq \
+    dnsutils \
+    dos2unix \
+    git \
+    gnupg \
+    gzip \
+    hostname \
+    jq \
+    libatomic1 \
+    libcurl4-openssl-dev \
+    openssl \
+    shellcheck \
+    tar \
+    tree \
+    unzip \
+    uuid-runtime \
+    vim \
+    wget \
+    zip
 
 #################################################
 # PYTHON
@@ -95,14 +95,14 @@ RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y \
     uuid-dev
 
 RUN curl -O https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz && \
-  tar -xvzf Python-${PYTHON_VERSION}.tgz && \
-  cd Python-${PYTHON_VERSION} && \
-  ./configure --enable-optimizations && \
-  make -j16 && \
-  make install && \
-  ln -sfn /usr/local/bin/python3 /usr/local/bin/python && \
-  ln -sfn /usr/local/bin/pip3 /usr/local/bin/pip && \
-  cd / && rm -rf Python-${PYTHON_VERSION}.tgz Python-${PYTHON_VERSION}
+    tar -xvzf Python-${PYTHON_VERSION}.tgz && \
+    cd Python-${PYTHON_VERSION} && \
+    ./configure --enable-optimizations && \
+    make -j16 && \
+    make install && \
+    ln -sfn /usr/local/bin/python3 /usr/local/bin/python && \
+    ln -sfn /usr/local/bin/pip3 /usr/local/bin/pip && \
+    cd / && rm -rf Python-${PYTHON_VERSION}.tgz Python-${PYTHON_VERSION}
 
 #################################################
 # AZURE CLI
@@ -113,7 +113,7 @@ RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 # TERRAFORM
 #################################################
 RUN curl -sL "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" -o terraform.zip && \
-  unzip -d /usr/local/bin/ terraform.zip && \
-  chmod +x /usr/local/bin/terraform && \
-  rm -rf terraform.zip && \
-  apt-get install -f
+    unzip -d /usr/local/bin/ terraform.zip && \
+    chmod +x /usr/local/bin/terraform && \
+    rm -rf terraform.zip && \
+    apt-get install -f
